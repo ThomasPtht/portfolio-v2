@@ -16,30 +16,33 @@ export function NavbarDemo() {
   const navItems = [
     {
       name: "Stack",
-      link: "#stack",
+      link: "/#stack",
     },
     {
       name: "Services",
-      link: "#services",
+      link: "/#services",
     },
     {
       name: "Projets",
-      link: "#projects",
+      link: "/#projects",
+    },
+    {
+      name: "À propos",
+      link: "/about",
     },
   ];
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <div className="relative w-full mt-4">
+    <div className="relative w-full mt-8">
       <Navbar>
         {/* Desktop Navigation */}
         <NavBody>
           <NavbarLogo />
           <NavItems items={navItems} />
           <div className="flex items-center gap-4">
-            <NavbarButton variant="secondary">Login</NavbarButton>
-            <NavbarButton variant="primary">Book a call</NavbarButton>
+            <NavbarButton variant="primary">Voir mon CV</NavbarButton>
           </div>
         </NavBody>
 
@@ -62,7 +65,7 @@ export function NavbarDemo() {
                 key={`mobile-link-${idx}`}
                 href={item.link}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="relative text-neutral-600 dark:text-neutral-300"
+                className="relative text-white-600 hover:text-white-900 dark:text-white-400 dark:hover:text-white-200"
               >
                 <span className="block">{item.name}</span>
               </a>

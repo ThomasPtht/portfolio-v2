@@ -7,6 +7,7 @@ import {
   useScroll,
   useMotionValueEvent,
 } from "motion/react";
+import Link from "next/link";
 
 import React, { useRef, useState } from "react";
 
@@ -119,7 +120,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
     <motion.div
       onMouseLeave={() => setHovered(null)}
       className={cn(
-        "absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-2 text-sm font-medium text-primary/80 transition duration-200 hover:text-white lg:flex lg:space-x-2",
+        "absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-2 text-md font-medium text-primary/80 transition duration-200 hover:text-white lg:flex lg:space-x-2",
         className,
       )}
     >
@@ -127,7 +128,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
         <a
           onMouseEnter={() => setHovered(idx)}
           onClick={onItemClick}
-          className="relative px-4 py-2 text-neutral-600 dark:text-neutral-300"
+          className="relative px-4 py-2 text-white dark:text-neutral-300"
           key={`link-${idx}`}
           href={item.link}
         >
@@ -241,7 +242,9 @@ export const NavbarLogo = () => {
         width={30}
         height={30}
       />
-      <span className="font-medium text-white">Thomas Potherat</span>
+      <Link href="/">
+        <span className="font-medium text-white">Thomas Potherat</span>
+      </Link>
     </a>
   );
 };

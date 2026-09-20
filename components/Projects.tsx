@@ -5,20 +5,20 @@ import { motion, AnimatePresence } from "motion/react";
 
 const projects = [
   {
-    id: "kitroom",
-    title: "Kitroom",
+    id: "kitoya",
+    title: "Kitoya",
     subtitle: "App Mobile • React Native / Expo / NestJS",
     description:
       "Application mobile de gestion de collection de maillots de sport avec API NestJS et PostgreSQL.",
     details:
-      "Kitroom permet aux collectionneurs de cataloguer leurs maillots. L'application intègre une architecture robuste, une base de données Prisma/PostgreSQL et un système de paiement Stripe.",
+      "Kitoya permet aux collectionneurs de cataloguer leurs maillots. L'application intègre une architecture robuste, une base de données Prisma/PostgreSQL et un système de paiement Stripe.",
     tech: ["React Native", "Expo", "NestJS", "PostgreSQL", "Prisma"],
-    span: "col-span-1 md:col-span-2",
+    // span: "col-span-1 md:col-span-2",
     image: "/kitroom-preview.jpg", // Vérifiez bien que le fichier est dans public/kitroom-preview.jpg
   },
   {
-    id: "sonar",
-    title: "Sonar",
+    id: "mtb",
+    title: "My Travel Book",
     subtitle: "Web Monitoring • React / Docker",
     description:
       "Plateforme de surveillance de sites web en temps réel avec GraphQL et conteneurisation Docker.",
@@ -26,7 +26,7 @@ const projects = [
       "Sonar surveille la disponibilité des services web. Développé avec React, GraphQL et TypeORM, entièrement conteneurisé via Docker.",
     tech: ["React", "GraphQL", "TypeORM", "Docker"],
     span: "col-span-1",
-    image: "/sonar-preview.jpg", // Assurez-vous d'avoir l'image dans public/
+    image: "/my-travel-book.png",
   },
   {
     id: "sonar",
@@ -38,20 +38,7 @@ const projects = [
       "Sonar surveille la disponibilité des services web. Développé avec React, GraphQL et TypeORM, entièrement conteneurisé via Docker.",
     tech: ["React", "GraphQL", "TypeORM", "Docker"],
     span: "col-span-1",
-    image: "/sonar-preview.jpg", // Assurez-vous d'avoir l'image dans public/
-  },
-
-  {
-    id: "sonar",
-    title: "Sonar",
-    subtitle: "Web Monitoring • React / Docker",
-    description:
-      "Plateforme de surveillance de sites web en temps réel avec GraphQL et conteneurisation Docker.",
-    details:
-      "Sonar surveille la disponibilité des services web. Développé avec React, GraphQL et TypeORM, entièrement conteneurisé via Docker.",
-    tech: ["React", "GraphQL", "TypeORM", "Docker"],
-    span: "col-span-2",
-    image: "/sonar-preview.jpg", // Assurez-vous d'avoir l'image dans public/
+    image: "/Sonar.png", // Assurez-vous d'avoir l'image dans public/
   },
 ];
 
@@ -61,25 +48,24 @@ export default function Projects() {
   return (
     <section id="projects" className="w-full py-20">
       <div className="mx-auto max-w-7xl px-6">
-        <h2 className="mb-10 text-3xl font-bold text-white">Mes Projets</h2>
-
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+        <h2 className="text-sm font-semibold uppercase tracking-[0.25em] text-violet-200/80 mb-10">
+          Mes Projets
+        </h2>
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((project) => (
             <motion.div
               key={project.id}
               onClick={() => setSelectedProject(project)}
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.2 }}
-              className={`${project.span} group relative flex h-80 cursor-pointer flex-col justify-end overflow-hidden rounded-3xl border border-primary/20 bg-[#0d0b14] p-8`}
+              className="group relative flex h-80 cursor-pointer flex-col justify-end overflow-hidden rounded-3xl border border-primary/20 bg-[#0d0b14] p-8"
             >
               <img
                 src={project.image}
                 alt={project.title}
                 className="absolute inset-0 h-full w-full object-cover object-center opacity-50 transition-transform duration-500 group-hover:scale-105"
               />
-
               <div className="absolute inset-0 bg-gradient-to-t from-[#07070d] via-[#07070d]/70 to-transparent" />
-
               <div className="relative z-10">
                 <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
                   {project.subtitle}
@@ -90,7 +76,6 @@ export default function Projects() {
                 <p className="mt-2 line-clamp-2 text-sm text-white/75">
                   {project.description}
                 </p>
-
                 <div className="mt-4 flex flex-wrap gap-2">
                   {project.tech.map((t) => (
                     <span
@@ -107,8 +92,7 @@ export default function Projects() {
         </div>
       </div>
 
-      {/* Modale de détails avec Image visible */}
-      {/* Modale de détails */}
+      {/* Modale inchangée */}
       <AnimatePresence>
         {selectedProject && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm">
@@ -124,7 +108,6 @@ export default function Projects() {
               >
                 ✕
               </button>
-
               <div className="mb-6 flex h-64 w-full items-center justify-center overflow-hidden rounded-2xl border border-primary/20 bg-[#07070d] p-2 sm:h-72">
                 <img
                   src={selectedProject.image}
@@ -132,18 +115,15 @@ export default function Projects() {
                   className="h-full w-full object-contain object-center"
                 />
               </div>
-
               <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
                 {selectedProject.subtitle}
               </span>
               <h3 className="mt-1 text-2xl font-bold text-white sm:text-3xl">
                 {selectedProject.title}
               </h3>
-
               <p className="mt-3 text-sm leading-relaxed text-white/75 sm:text-base">
                 {selectedProject.details}
               </p>
-
               <div className="mt-5">
                 <h4 className="mb-2 text-sm font-semibold text-white">
                   Technologies :
@@ -159,7 +139,6 @@ export default function Projects() {
                   ))}
                 </div>
               </div>
-
               <div className="mt-6 flex justify-end gap-3">
                 <button
                   onClick={() => setSelectedProject(null)}

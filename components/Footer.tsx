@@ -1,4 +1,4 @@
-import React from "react";
+import Image from "next/image";
 
 const Footer = () => {
   return (
@@ -8,7 +8,15 @@ const Footer = () => {
           &copy; {new Date().getFullYear()} Thomas Potherat. Tous droits
           réservés.
         </p>
-
+        <div className="flex items-center gap-4 text-sm text-violet-100/80">
+          <Image
+            src="/github-logo.png"
+            alt="Logo"
+            width={40}
+            height={40}
+            color="white"
+          />
+        </div>
         <div className="flex items-center gap-4 text-sm text-violet-100/80">
           <span>Prêts à travailler ensemble ?</span>
           <button className="rounded-lg border border-violet-500/40 bg-violet-500/10 px-4 py-2 transition-colors hover:bg-violet-500/20">

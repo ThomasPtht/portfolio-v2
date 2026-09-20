@@ -111,11 +111,7 @@ export default function ExpertiseSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ y: -6 }}
-              className={cn(
-                "h-full rounded-3xl border border-violet-500/20 bg-[#0d0b14] p-8 shadow-[0_0_0_1px_rgba(168,85,247,0.08)] transition-all hover:border-violet-400/40 hover:shadow-[0_0_30px_rgba(168,85,247,0.18)]",
-                "flex flex-col justify-between",
-              )}
+              className={cn("h-full p-8", "flex flex-col justify-between")}
             >
               <div>
                 <div className="mb-5 h-[3px] w-8 rounded-full bg-violet-400" />
