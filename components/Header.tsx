@@ -46,7 +46,14 @@ export function NavbarDemo() {
           <NavbarLogo />
           <NavItems items={navItems} />
           <div className="flex items-center gap-4">
-            <NavbarButton variant="primary">Voir mon CV</NavbarButton>
+            <NavbarButton
+              href="https://drive.google.com/file/d/1A6S7mRV0C9mCpPxfuYatDLETWVw8oRXo/view"
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="primary"
+            >
+              Voir mon CV
+            </NavbarButton>
           </div>
         </NavBody>
 
@@ -76,6 +83,9 @@ export function NavbarDemo() {
             ))}
             <div className="flex w-full flex-col gap-4">
               <NavbarButton
+                href="https://drive.google.com/file/d/1A6S7mRV0C9mCpPxfuYatDLETWVw8oRXo/view"
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setIsMobileMenuOpen(false)}
                 variant="primary"
                 className="w-full"

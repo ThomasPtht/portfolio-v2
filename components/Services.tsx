@@ -71,9 +71,9 @@ const expertiseData = [
     ),
   },
   {
-    title: "Qualité & Industrialisation",
+    title: "Mise en production",
     description:
-      "Du typage strict aux tests automatisés et pipelines CI/CD : des bases de code maintenables qui évoluent sans régressions.",
+      "Déploiement et mise en production sur serveur, tests automatisés et pipelines CI/CD : des livraisons fiables et des bases de code qui évoluent sans régressions.",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
