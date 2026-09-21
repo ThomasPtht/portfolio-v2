@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import { NavbarDemo } from "@/components/Header";
 import Hero from "@/components/Hero";
 import Projects from "@/components/Projects";
+import ScrollToTop from "@/components/ScrollToTop";
 import ExpertiseSection from "@/components/Services";
 import Stack from "@/components/Stack";
 
@@ -18,6 +19,7 @@ export default function Home() {
         <Cta />
       </main>
       <Footer />
+      <ScrollToTop />
     </div>
   );
 }
