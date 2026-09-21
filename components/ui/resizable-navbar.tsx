@@ -280,13 +280,13 @@ export const NavbarButton = ({
       "bg-gradient-to-b from-primary to-primary/80 text-primary-foreground shadow-[0px_2px_0px_0px_rgba(255,255,255,0.15)_inset]",
   };
 
-  const Component = as;
+  const Component = as as "a";
 
   return (
     <Component
       href={as === "a" ? href || undefined : undefined}
       className={cn(baseStyles, variantStyles[variant], className)}
-      {...props}
+      {...(props as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
     >
       {children}
     </Component>
