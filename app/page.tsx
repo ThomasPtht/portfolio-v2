@@ -1,3 +1,4 @@
+import Cta from "@/components/Cta";
 import Footer from "@/components/Footer";
 import { NavbarDemo } from "@/components/Header";
 import Hero from "@/components/Hero";
@@ -14,6 +15,7 @@ export default function Home() {
         <Stack />
         <ExpertiseSection />
         <Projects />
+        <Cta />
       </main>
       <Footer />
     </div>

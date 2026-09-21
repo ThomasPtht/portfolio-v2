@@ -8,14 +8,38 @@ const Footer = () => {
           &copy; {new Date().getFullYear()} Thomas Potherat. Tous droits
           réservés.
         </p>
-        <div className="flex items-center gap-4 text-sm text-violet-100/80">
-          <Image
-            src="/github-logo.png"
-            alt="Logo"
-            width={40}
-            height={40}
-            color="white"
-          />
+        <div className="flex items-center gap-5">
+          <a
+            href="https://github.com/ThomasPtht"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+            className="opacity-70 transition hover:scale-110 hover:opacity-100"
+          >
+            {/* brightness-0 invert : passe le PNG noir en blanc */}
+            <Image
+              src="/github-logo.png"
+              alt=""
+              width={28}
+              height={28}
+              className="brightness-0 invert"
+            />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/thomas-potherat-923868166/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            className="opacity-70 transition hover:scale-110 hover:opacity-100"
+          >
+            <Image
+              src="/logo-linkedin.png"
+              alt=""
+              width={28}
+              height={28}
+              className="brightness-0 invert"
+            />
+          </a>
         </div>
         <div className="flex items-center gap-4 text-sm text-violet-100/80">
           <span>Prêts à travailler ensemble ?</span>

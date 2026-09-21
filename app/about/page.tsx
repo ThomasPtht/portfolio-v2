@@ -4,9 +4,10 @@ import { NavbarDemo } from "@/components/Header";
 import About from "@/components/About";
 
 export const metadata: Metadata = {
-  title: "À propos | Thomas Potherat",
+  title: "À propos",
   description:
-    "Mon parcours, ce qui m'a mené au développement web, et les opportunités que je recherche.",
+    "Mon parcours de développeur Fullstack basé à Auxerre : de la création d'un site WordPress à une alternance au Crédit Agricole à Dijon, jusqu'aux applications web et mobiles d'aujourd'hui.",
+  alternates: { canonical: "/about" },
 };
 
 export default function AboutPage() {

@@ -14,7 +14,7 @@ const parcours = [
   {
     step: "02",
     title: "Formation et expérience professionnelle",
-    text: "Après une formation de 6 mois en développement web, j'ai consolidé mes compétences lors d'une alternance de 15 mois au Crédit Agricole de Champagne Bourgogne. Cette expérience m'a permis de passer un cap : rigueur de code, collaboration avec les équipes métiers et exigence de sécurité inhérente au secteur bancaire.",
+    text: "Après une formation de 6 mois en développement web, j'ai consolidé mes compétences lors d'une alternance de 15 mois au Crédit Agricole de Champagne Bourgogne, à Dijon. Cette expérience m'a permis de passer un cap : rigueur de code, collaboration avec les équipes métiers et exigence de sécurité inhérente au secteur bancaire.",
   },
   {
     step: "03",
@@ -52,7 +52,7 @@ export default function About() {
             À propos
           </span>
           <h1 className="mt-5 text-4xl font-black tracking-tight text-white sm:text-5xl">
-            Du site WordPress au{" "}
+            D'un site WordPress au{" "}
             <span className="text-primary">développement fullstack</span>
           </h1>
         </div>
@@ -64,8 +64,7 @@ export default function About() {
             fill
             unoptimized
             priority
-            style={{ objectPosition: "71% 50%" }}
-            className="relative rounded-full border border-primary/40 bg-white object-cover"
+            className="relative rounded-full border border-primary/40 bg-white object-cover object-[7%_50%]"
           />
         </div>
       </motion.div>
@@ -112,9 +111,9 @@ export default function About() {
         </h2>
         <p className="mt-3 leading-relaxed text-white/75">
           Développeur Full Stack, Frontend ou mobile, je suis disponible pour
-          donner vie à vos projets : de la conception d'interfaces performantes
-          à la mise en production d'un vrai produit. Disponible et mobile, en
-          France ou au-delà.
+          un poste ou des missions : de la conception d'interfaces performantes
+          à la mise en production d'un vrai produit. Basé à Auxerre (Yonne), en
+          Bourgogne, je suis mobile partout en France, sur place ou en remote.
         </p>
         <div className="mt-6 flex flex-wrap items-center gap-4">
           <a href="/#projects">

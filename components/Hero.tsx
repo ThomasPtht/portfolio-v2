@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import {
   motion,
   useMotionValue,
@@ -212,15 +213,21 @@ const Hero = () => {
           Native, des APIs solides avec NestJS, et des bases de code
           maintenables.
         </motion.p>
+        <motion.p variants={fadeUp} className="text-sm text-white/55">
+          Basé à Auxerre (Yonne, Bourgogne) · Disponible partout en France, sur
+          place ou en remote
+        </motion.p>
 
         <motion.div
           variants={container}
           className="flex flex-wrap items-center justify-center gap-4 sm:justify-start"
         >
           <motion.div variants={buttons}>
-            <Button className="bg-primary text-primary-foreground hover:bg-primary/80">
-              Contact
-            </Button>
+            <a href="/contact">
+              <Button className="bg-primary text-primary-foreground hover:bg-primary/80">
+                Contact
+              </Button>
+            </a>
           </motion.div>
           <motion.div variants={buttons}>
             <Button
@@ -235,16 +242,34 @@ const Hero = () => {
             href="https://github.com/ThomasPtht"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="GitHub"
+            whileHover={{ scale: 1.15 }}
+            className="block opacity-70 transition-opacity hover:opacity-100"
           >
-            <span className="text-sm text-primary/80">Github</span>
+            <Image
+              src="/github-logo.png"
+              alt=""
+              width={28}
+              height={28}
+              className="brightness-0 invert"
+            />
           </motion.a>
           <motion.a
             variants={buttons}
             href="https://www.linkedin.com/in/thomas-potherat-923868166/"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            whileHover={{ scale: 1.15 }}
+            className="block opacity-70 transition-opacity hover:opacity-100"
           >
-            <span className="text-sm text-primary/80">Linkedin</span>
+            <Image
+              src="/logo-linkedin.png"
+              alt=""
+              width={28}
+              height={28}
+              className="brightness-0 invert"
+            />
           </motion.a>
         </motion.div>
       </motion.div>
