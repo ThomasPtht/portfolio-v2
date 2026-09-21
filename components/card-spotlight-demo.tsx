@@ -15,13 +15,21 @@ const techStackData = [
     category: "FRONTEND",
     icon: Monitor,
     title: "React & Next.js",
-    tags: ["React", "Next.js", "React Native", "Expo"],
+    tags: [
+      "React",
+      "Next.js",
+      "React Native",
+      "Expo",
+      "Apollo Client",
+      "Zustand",
+      "TanStack Query",
+    ],
   },
   {
-    category: "LANGAGE",
+    category: "TYPAGE & VALIDATION",
     icon: Braces,
     title: "TypeScript",
-    tags: ["TypeScript Strict", "Zod", "Eslint"],
+    tags: ["React Hook Form", "Zod", "ESLint", "class-validator"],
   },
   {
     category: "BACKEND",
@@ -39,13 +47,25 @@ const techStackData = [
     category: "INFRA & DEVOPS",
     icon: Container,
     title: "Docker & CI/CD",
-    tags: ["Docker", "GitHub Actions", "AWS S3", "Cloudflare R2"],
+    tags: [
+      "Docker",
+      "GitHub Actions",
+      "Déploiement VPS",
+      "Nginx",
+      "Cloudflare R2",
+    ],
   },
   {
     category: "QUALITÉ",
     icon: ShieldCheck,
     title: "Tests automatisés",
-    tags: ["Vitest", "Jest", "Tests E2E", "Couverture CI"],
+    tags: [
+      "Vitest",
+      "Jest",
+      "Tests E2E",
+      "React Testing Library",
+      "Playwright",
+    ],
   },
 ];
 

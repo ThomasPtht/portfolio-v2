@@ -24,11 +24,11 @@ const projects: Project[] = [
     title: "Kitoya",
     subtitle: "App mobile",
     description:
-      "Application mobile de gestion de collection de maillots de sport avec API NestJS et PostgreSQL.",
+      "Application mobile de gestion de collection de maillots de sport, avec abonnements, notifications push et API NestJS déployée sur VPS.",
     details:
-      "Kitoya permet aux collectionneurs de cataloguer leurs maillots. L'application intègre une architecture robuste, une base de données Prisma/PostgreSQL et un système de paiement Stripe.",
-    highlight: "API NestJS · Cloudflare R2 · RevenueCat",
-    tech: ["React Native", "Expo", "NestJS", "PostgreSQL", "Prisma"],
+      "Kitoya permet aux collectionneurs de cataloguer leurs maillots. Les images sont stockées sur Cloudflare R2, avec suppression automatique de l'arrière-plan. L'application gère les abonnements via RevenueCat et envoie des notifications push. Côté suivi : analytics avec PostHog, monitoring des erreurs avec Sentry et tests avec Jest. Le backend NestJS (PostgreSQL, Prisma) est déployé sur un VPS avec Docker, avec des environnements de staging et de production séparés.",
+    highlight: "RevenueCat · PostHog · Sentry · VPS Docker",
+    tech: ["React Native", "Expo", "NestJS", "PostgreSQL", "Prisma", "Docker"],
     image: "/kitroom-preview.jpg",
     github: "https://github.com/ThomasPtht/kitoya",
     demo: "https://kitoya.com",
@@ -37,13 +37,12 @@ const projects: Project[] = [
     id: "mtb",
     title: "My Travel Book",
     subtitle: "Application web",
-    // TODO: texte provisoire, à réécrire
     description:
-      "Carnet de voyage en ligne pour organiser ses étapes, garder ses souvenirs et les partager.",
+      "Web app pour lister ses voyages avec une note et un commentaire, et les visualiser sur une carte interactive.",
     details:
-      "My Travel Book permet de préparer un voyage, de consigner chaque étape avec ses photos et de partager son carnet. Une application pensée pour être simple et agréable à utiliser.",
-    highlight: "Interface soignée · GraphQL · Docker",
-    tech: ["React", "GraphQL", "TypeORM", "Docker"],
+      "My Travel Book permet de lister ses voyages en leur attribuant une note et un commentaire, et de les visualiser sur une carte interactive. Construite avec Next.js 16, avec Prisma et PostgreSQL pour le backend. Authentification avec NextAuth, tests avec Jest et React Testing Library.",
+    highlight: "Carte interactive · NextAuth · Tests Jest",
+    tech: ["Next.js", "Prisma", "PostgreSQL", "NextAuth", "Jest"],
     image: "/my-travel-book.png",
     github: "https://github.com/ThomasPtht/MyTravelBook",
     demo: "https://my-travel-book-omega.vercel.app/login",
@@ -53,11 +52,11 @@ const projects: Project[] = [
     title: "Sonar",
     subtitle: "Application web",
     description:
-      "Plateforme de surveillance de sites web en temps réel avec GraphQL et conteneurisation Docker.",
+      "Application web de monitoring d'adresses URL, avec API GraphQL, authentification sécurisée et pipeline CI/CD.",
     details:
-      "Sonar surveille la disponibilité des services web. Développé avec React, GraphQL et TypeORM, entièrement conteneurisé via Docker.",
-    highlight: "Suivi en temps réel · GraphQL · Docker",
-    tech: ["React", "GraphQL", "TypeORM", "Docker"],
+      "Sonar est une application web de monitoring d'adresses URL. Réalisée avec React pour le frontend, et GraphQL Yoga avec Express pour le backend. PostgreSQL sert de base de données, avec TypeORM pour échanger avec elle. Intégration d'une authentification sécurisée et d'un pipeline CI/CD.",
+    highlight: "GraphQL Yoga · Auth sécurisée · CI/CD",
+    tech: ["React", "GraphQL", "Express", "PostgreSQL", "TypeORM"],
     image: "/Sonar.png",
     github: "https://github.com/WildCodeSchool/2024-09-wns-bleu-3",
     demo: "",
@@ -67,10 +66,10 @@ const projects: Project[] = [
     title: "PulseOn",
     subtitle: "Application web",
     description:
-      "App permettant de saisir et analyser ses séances de sport(running et musculation)",
+      "Application pour saisir et analyser ses séances de sport (running et musculation), avec authentification sécurisée et tests.",
     details:
-      "Frontend en React, TypeScript et Apollo Client. Back en Node.js, Express et Apollo Server, avec TypeORM et PostgreSQL. Auth sécurisée via JWT et argon2. Tests via Vitest et React Testing Library.",
-    highlight: "Auth JWT · GraphQL · Tests Vitest",
+      "PulseOn permet de saisir et d'analyser ses séances de sport, en running comme en musculation. Frontend en React, TypeScript et Apollo Client. Backend en Node.js, Express et Apollo Server, avec TypeORM et PostgreSQL. Authentification sécurisée via JWT et argon2. Tests avec Vitest et React Testing Library.",
+    highlight: "Auth JWT + argon2 · Apollo · Tests Vitest",
     tech: ["React", "TypeScript", "Apollo", "Node.js", "PostgreSQL"],
     image: "/pulseon.png",
     github: "https://github.com/ThomasPtht/PulseOn",

@@ -110,9 +110,9 @@ export default function About() {
           Disponible pour vos projets
         </h2>
         <p className="mt-3 leading-relaxed text-white/75">
-          Développeur Full Stack, Frontend ou mobile, je suis disponible pour
-          un poste ou des missions : de la conception d'interfaces performantes
-          à la mise en production d'un vrai produit. Basé à Auxerre (Yonne), en
+          Développeur Full Stack, Frontend ou mobile, je suis disponible pour un
+          poste ou des missions : de la conception d'interfaces performantes à
+          la mise en production d'un vrai produit. Basé à Auxerre (Yonne), en
           Bourgogne, je suis mobile partout en France, sur place ou en remote.
         </p>
         <div className="mt-6 flex flex-wrap items-center gap-4">
