@@ -1,118 +1,221 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 
-const projects = [
+type Project = {
+  id: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  details: string;
+  highlight: string;
+  tech: string[];
+  image: string;
+  github?: string;
+  demo?: string;
+};
+
+// TODO: remplacer les liens (github / demo) et les textes marqués par de vraies valeurs
+const projects: Project[] = [
   {
     id: "kitoya",
     title: "Kitoya",
-    subtitle: "App Mobile • React Native / Expo / NestJS",
+    subtitle: "App mobile",
     description:
       "Application mobile de gestion de collection de maillots de sport avec API NestJS et PostgreSQL.",
     details:
       "Kitoya permet aux collectionneurs de cataloguer leurs maillots. L'application intègre une architecture robuste, une base de données Prisma/PostgreSQL et un système de paiement Stripe.",
+    highlight: "API NestJS · Cloudflare R2 · RevenueCat",
     tech: ["React Native", "Expo", "NestJS", "PostgreSQL", "Prisma"],
-    // span: "col-span-1 md:col-span-2",
-    image: "/kitroom-preview.jpg", // Vérifiez bien que le fichier est dans public/kitroom-preview.jpg
+    image: "/kitroom-preview.jpg",
+    github: "https://github.com/ThomasPtht/kitoya",
+    demo: "https://kitoya.com",
   },
   {
     id: "mtb",
     title: "My Travel Book",
-    subtitle: "Web Monitoring • React / Docker",
+    subtitle: "Application web",
+    // TODO: texte provisoire, à réécrire
     description:
-      "Plateforme de surveillance de sites web en temps réel avec GraphQL et conteneurisation Docker.",
+      "Carnet de voyage en ligne pour organiser ses étapes, garder ses souvenirs et les partager.",
     details:
-      "Sonar surveille la disponibilité des services web. Développé avec React, GraphQL et TypeORM, entièrement conteneurisé via Docker.",
+      "My Travel Book permet de préparer un voyage, de consigner chaque étape avec ses photos et de partager son carnet. Une application pensée pour être simple et agréable à utiliser.",
+    highlight: "Interface soignée · GraphQL · Docker",
     tech: ["React", "GraphQL", "TypeORM", "Docker"],
-    span: "col-span-1",
     image: "/my-travel-book.png",
+    github: "https://github.com/ThomasPtht/MyTravelBook",
+    demo: "https://my-travel-book-omega.vercel.app/login",
   },
   {
     id: "sonar",
     title: "Sonar",
-    subtitle: "Web Monitoring • React / Docker",
+    subtitle: "Application web",
     description:
       "Plateforme de surveillance de sites web en temps réel avec GraphQL et conteneurisation Docker.",
     details:
       "Sonar surveille la disponibilité des services web. Développé avec React, GraphQL et TypeORM, entièrement conteneurisé via Docker.",
+    highlight: "Suivi en temps réel · GraphQL · Docker",
     tech: ["React", "GraphQL", "TypeORM", "Docker"],
-    span: "col-span-1",
-    image: "/Sonar.png", // Assurez-vous d'avoir l'image dans public/
+    image: "/Sonar.png",
+    github: "https://github.com/WildCodeSchool/2024-09-wns-bleu-3",
+    demo: "",
+  },
+  {
+    id: "pulseon",
+    title: "PulseOn",
+    subtitle: "Application web",
+    description:
+      "App permettant de saisir et analyser ses séances de sport(running et musculation)",
+    details:
+      "Frontend en React, TypeScript et Apollo Client. Back en Node.js, Express et Apollo Server, avec TypeORM et PostgreSQL. Auth sécurisée via JWT et argon2. Tests via Vitest et React Testing Library.",
+    highlight: "Auth JWT · GraphQL · Tests Vitest",
+    tech: ["React", "TypeScript", "Apollo", "Node.js", "PostgreSQL"],
+    image: "/pulseon.png",
+    github: "https://github.com/ThomasPtht/PulseOn",
+    demo: "",
+  },
+  {
+    id: "moveon",
+    title: "MoveOn",
+    subtitle: "Landing page",
+    description:
+      "Landing page pour une application de programmes sportifs, au design élégant et moderne.",
+    details:
+      "Création d'une landing page pour une application de programmes sportifs. Construite avec React et le builder Vite, elle bénéficie d'une esthétique élégante grâce à Tailwind. Les composants sont mis en valeur par la bibliothèque React Awesome, pour une expérience utilisateur moderne.",
+    highlight: "Design soigné · React · Vite",
+    tech: ["React", "Vite", "Tailwind CSS", "React Awesome"],
+    image: "/move-on.png",
+    github: "https://github.com/ThomasPtht/MoveOn", // TODO
+    demo: "https://moveon.example.com", // TODO
+  },
+  {
+    id: "manaia",
+    title: "Manaia bijoux",
+    subtitle: "E-commerce WordPress",
+    description:
+      "Boutique en ligne WordPress optimisée pour les performances et le référencement.",
+    details:
+      "Élaboration d'une boutique en ligne sous WordPress avec le thème Astra, et ajout de divers plugins pour optimiser les performances du site. Rédaction de fiches produits basée sur l'analyse de mots-clés pour renforcer le référencement on-page. Analyse des données via Google Analytics et la Search Console.",
+    highlight: "Performances · SEO on-page · Analytics",
+    tech: ["WordPress", "Astra", "SEO", "Analytics"],
+    image: "/Manaia-bijoux.png",
+    demo: "https://manaia-bijoux.fr",
   },
 ];
 
 export default function Projects() {
-  const [selectedProject, setSelectedProject] = useState<any | null>(null);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
+  // Fermeture de la modale avec Échap
+  useEffect(() => {
+    if (!selectedProject) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setSelectedProject(null);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [selectedProject]);
 
   return (
     <section id="projects" className="w-full py-20">
       <div className="mx-auto max-w-7xl px-6">
-        <h2 className="text-sm font-semibold uppercase tracking-[0.25em] text-violet-200/80 mb-10">
+        <h2 className="mb-10 text-sm font-semibold uppercase tracking-[0.25em] text-violet-200/80">
           Mes Projets
         </h2>
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project) => (
-            <motion.div
+        {/* flex + justify-center : la dernière ligne incomplète reste centrée */}
+        <div className="flex flex-wrap justify-center gap-6">
+          {projects.map((project, index) => (
+            <motion.button
               key={project.id}
+              type="button"
               onClick={() => setSelectedProject(project)}
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.2 }}
-              className="group relative flex h-80 cursor-pointer flex-col justify-end overflow-hidden rounded-3xl border border-primary/20 bg-[#0d0b14] p-8"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="group flex w-full cursor-pointer flex-col overflow-hidden rounded-3xl sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] border border-primary/20 bg-[#0d0b14] text-left transition-colors duration-300 hover:border-primary/50"
             >
-              <img
-                src={project.image}
-                alt={project.title}
-                className="absolute inset-0 h-full w-full object-cover object-center opacity-50 transition-transform duration-500 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#07070d] via-[#07070d]/70 to-transparent" />
-              <div className="relative z-10">
+              {/* Visuel : la capture est affichée en entier, à pleine luminosité */}
+              <div className="relative aspect-[16/10] w-full overflow-hidden border-b border-primary/15 bg-[#07070d]">
+                <Image
+                  src={project.image}
+                  alt={`Aperçu du projet ${project.title}`}
+                  fill
+                  sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"
+                  className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+
+              <div className="flex flex-1 flex-col p-6">
                 <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
                   {project.subtitle}
                 </span>
-                <h3 className="mt-1 text-2xl font-bold text-white">
+                <h3 className="mt-1 text-xl font-bold text-white">
                   {project.title}
                 </h3>
-                <p className="mt-2 line-clamp-2 text-sm text-white/75">
+                <p className="mt-2 text-sm leading-relaxed text-white/70">
                   {project.description}
                 </p>
+                <p className="mt-3 text-xs font-medium text-violet-200/70">
+                  {project.highlight}
+                </p>
+
                 <div className="mt-4 flex flex-wrap gap-2">
                   {project.tech.map((t) => (
                     <span
                       key={t}
-                      className="rounded-full border border-primary/20 bg-[#0d0b14]/80 px-2.5 py-1 text-xs text-white/80 backdrop-blur-md"
+                      className="rounded-full border border-primary/20 bg-primary/5 px-2.5 py-1 text-xs text-white/80"
                     >
                       {t}
                     </span>
                   ))}
                 </div>
+
+                <span className="mt-auto pt-5 text-sm font-medium text-primary transition-transform duration-300 group-hover:translate-x-1">
+                  Voir le projet →
+                </span>
               </div>
-            </motion.div>
+            </motion.button>
           ))}
         </div>
       </div>
 
-      {/* Modale inchangée */}
       <AnimatePresence>
         {selectedProject && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedProject(null)}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm"
+          >
             <motion.div
+              role="dialog"
+              aria-modal="true"
+              aria-label={selectedProject.title}
+              onClick={(e) => e.stopPropagation()}
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
               className="relative max-h-[90vh] w-full max-w-xl overflow-y-auto rounded-3xl border border-violet-500/20 bg-[#0d0b14] p-6 shadow-2xl sm:p-8"
             >
               <button
+                type="button"
                 onClick={() => setSelectedProject(null)}
-                className="absolute right-6 top-6 z-10 rounded-full bg-primary/10 p-2 text-xl text-primary transition hover:text-white"
+                aria-label="Fermer"
+                className="absolute right-6 top-6 z-10 cursor-pointer rounded-full bg-primary/10 p-2 text-xl text-primary transition hover:text-white"
               >
                 ✕
               </button>
-              <div className="mb-6 flex h-64 w-full items-center justify-center overflow-hidden rounded-2xl border border-primary/20 bg-[#07070d] p-2 sm:h-72">
-                <img
+              <div className="relative mb-6 h-64 w-full overflow-hidden rounded-2xl border border-primary/20 bg-[#07070d] sm:h-72">
+                <Image
                   src={selectedProject.image}
-                  alt={selectedProject.title}
-                  className="h-full w-full object-contain object-center"
+                  alt={`Aperçu du projet ${selectedProject.title}`}
+                  fill
+                  sizes="(min-width: 640px) 576px, 100vw"
+                  className="object-contain object-center p-2"
                 />
               </div>
               <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
@@ -129,7 +232,7 @@ export default function Projects() {
                   Technologies :
                 </h4>
                 <div className="flex flex-wrap gap-2">
-                  {selectedProject.tech.map((t: string) => (
+                  {selectedProject.tech.map((t) => (
                     <span
                       key={t}
                       className="rounded-full bg-primary/10 px-3 py-1 text-xs text-primary"
@@ -139,24 +242,37 @@ export default function Projects() {
                   ))}
                 </div>
               </div>
-              <div className="mt-6 flex justify-end gap-3">
+              <div className="mt-6 flex flex-wrap justify-end gap-3">
                 <button
+                  type="button"
                   onClick={() => setSelectedProject(null)}
-                  className="rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary transition hover:bg-primary/20"
+                  className="cursor-pointer rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary transition hover:bg-primary/20"
                 >
                   Fermer
                 </button>
-                <a
-                  href="https://github.com/ThomasPtht"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition hover:bg-primary/80"
-                >
-                  Voir sur GitHub
-                </a>
+                {selectedProject.demo && (
+                  <a
+                    href={selectedProject.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-full border border-primary/40 px-4 py-2 text-sm font-medium text-primary transition hover:bg-primary/10"
+                  >
+                    Voir la démo
+                  </a>
+                )}
+                {selectedProject.github && (
+                  <a
+                    href={selectedProject.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition hover:bg-primary/80"
+                  >
+                    Voir sur GitHub
+                  </a>
+                )}
               </div>
             </motion.div>
-          </div>
+          </motion.div>
         )}
       </AnimatePresence>
     </section>
