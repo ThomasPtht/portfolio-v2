@@ -7,6 +7,7 @@ import {
   useScroll,
   useMotionValueEvent,
 } from "motion/react";
+import Image from "next/image";
 import Link from "next/link";
 
 import React, { useRef, useState } from "react";
@@ -232,20 +233,19 @@ export const MobileNavToggle = ({
 
 export const NavbarLogo = () => {
   return (
-    <a
-      href="#"
-      className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-white"
+    <Link
+      href="/"
+      className="relative z-20 mr-4 flex items-center space-x-0.5 px-2 py-1 text-sm font-normal text-white"
     >
-      <img
-        src="https://assets.aceternity.com/logo-dark.png"
-        alt="logo"
-        width={30}
-        height={30}
+      <Image
+        src="/logo-tp.png"
+        alt="Logo Thomas Potherat"
+        width={72}
+        height={72}
+        className="h-14 w-14 shrink-0 lg:h-16 lg:w-16"
       />
-      <Link href="/">
-        <span className="font-medium text-white">Thomas Potherat</span>
-      </Link>
-    </a>
+      <span className="text-xl font-semibold text-white">Thomas Potherat</span>
+    </Link>
   );
 };
 

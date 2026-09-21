@@ -4,10 +4,12 @@ import TechStackSection from "./card-spotlight-demo";
 
 const techStack = [
   { name: "React", icon: "/logos/react-logo.png", quote: "", title: "" },
+  { name: "Nextjs", icon: "/logos/next-js.svg", quote: "", title: "" },
   { name: "PostgreSQL", icon: "/logos/Postgresql.png", quote: "", title: "" },
   { name: "Prisma", icon: "/logos/prisma.png", quote: "", title: "" },
   { name: "Tailwind", icon: "/logos/tailwind.png", quote: "", title: "" },
-  { name: "NestJS", icon: "/logos/nestjs.jpg", quote: "", title: "" },
+  { name: "NestJS", icon: "/logos/nestjs.png", quote: "", title: "" },
+  { name: "Docker", icon: "/logos/docker.png", quote: "", title: "" },
 ];
 
 const Stack = () => {

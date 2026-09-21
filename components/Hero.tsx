@@ -209,9 +209,9 @@ const Hero = () => {
           variants={fadeUp}
           className="max-w-2xl text-base text-white/75 sm:text-lg"
         >
-          Je conçois des apps web et mobiles avec React / Next.js / React
-          Native, des APIs solides avec NestJS, et des bases de code
-          maintenables.
+          Je conçois et développe des applications web et mobiles, de
+          l'interface utilisateur jusqu'à la logique serveur, avec le souci
+          d'avoir un code propre et structuré.
         </motion.p>
         <motion.p variants={fadeUp} className="text-sm text-white/55">
           Basé à Auxerre (Yonne, Bourgogne) · Disponible partout en France, sur
