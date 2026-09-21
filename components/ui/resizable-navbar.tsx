@@ -225,9 +225,9 @@ export const MobileNavToggle = ({
   onClick: () => void;
 }) => {
   return isOpen ? (
-    <IconX className="shrink-0 text-white" onClick={onClick} />
+    <IconX className="mr-4 shrink-0 text-white" onClick={onClick} />
   ) : (
-    <IconMenu2 className="shrink-0 text-white" onClick={onClick} />
+    <IconMenu2 className="mr-4 shrink-0 text-white" onClick={onClick} />
   );
 };
 
