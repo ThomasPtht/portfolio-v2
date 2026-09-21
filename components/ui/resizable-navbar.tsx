@@ -242,7 +242,7 @@ export const NavbarLogo = () => {
         alt="Logo Thomas Potherat"
         width={72}
         height={72}
-        className="h-14 w-14 shrink-0 lg:h-16 lg:w-16"
+        className="h-10 w-10 shrink-0 lg:h-12 lg:w-12"
       />
       <span className="text-xl font-semibold text-white">Thomas Potherat</span>
     </Link>
