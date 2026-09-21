@@ -225,9 +225,9 @@ export const MobileNavToggle = ({
   onClick: () => void;
 }) => {
   return isOpen ? (
-    <IconX className="text-black dark:text-white" onClick={onClick} />
+    <IconX className="shrink-0 text-white" onClick={onClick} />
   ) : (
-    <IconMenu2 className="text-black dark:text-white" onClick={onClick} />
+    <IconMenu2 className="shrink-0 text-white" onClick={onClick} />
   );
 };
 
@@ -235,7 +235,7 @@ export const NavbarLogo = () => {
   return (
     <Link
       href="/"
-      className="relative z-20 mr-4 flex items-center gap-3 px-2 py-1 text-sm font-normal text-white"
+      className="relative z-20 mr-2 flex min-w-0 items-center gap-2 px-2 sm:mr-4 sm:gap-3 py-1 text-sm font-normal text-white"
     >
       <Image
         src="/logo-tp.png"
@@ -244,7 +244,7 @@ export const NavbarLogo = () => {
         height={72}
         className="h-8 w-8 shrink-0 lg:h-10 lg:w-10"
       />
-      <span className="text-xl font-semibold text-white">Thomas Potherat</span>
+      <span className="text-base font-semibold text-white sm:text-xl">Thomas Potherat</span>
     </Link>
   );
 };
