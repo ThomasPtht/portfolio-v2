@@ -235,14 +235,14 @@ export const NavbarLogo = () => {
   return (
     <Link
       href="/"
-      className="relative z-20 mr-4 flex items-center space-x-0.5 px-2 py-1 text-sm font-normal text-white"
+      className="relative z-20 mr-4 flex items-center gap-3 px-2 py-1 text-sm font-normal text-white"
     >
       <Image
         src="/logo-tp.png"
         alt="Logo Thomas Potherat"
         width={72}
         height={72}
-        className="h-10 w-10 shrink-0 lg:h-12 lg:w-12"
+        className="h-8 w-8 shrink-0 lg:h-10 lg:w-10"
       />
       <span className="text-xl font-semibold text-white">Thomas Potherat</span>
     </Link>
